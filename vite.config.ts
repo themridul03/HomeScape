@@ -11,11 +11,23 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
+
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
     },
   },
+
+  server: {
+    proxy: {
+      "/api": {
+        target: "https://real-estate-website-backend-zfu7.onrender.com",
+        changeOrigin: true,
+        secure: true,
+      },
+    },
+  },
+
   build: {
     rollupOptions: {
       output: {
@@ -27,5 +39,6 @@ export default defineConfig({
       },
     },
   },
+
   assetsInclude: ['**/*.svg', '**/*.csv'],
 })

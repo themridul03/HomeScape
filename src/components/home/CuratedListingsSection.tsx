@@ -42,13 +42,14 @@ const CuratedListingsSection: React.FC = () => {
           {/* Large Featured Property */}
           <div className="col-span-12 md:col-span-8 rounded-2xl overflow-hidden shadow-[0px_20px_25px_-5px_rgba(0,0,0,0.1)] relative group">
             <div className="relative h-[500px]">
-              <img 
-                src={propertyImages[0]} 
-                alt="The Glass Pavilion luxury villa in Montecito California" 
-                className="absolute inset-0 w-full h-full object-cover" 
-                loading="eager"
-                fetchPriority="high"
-              />
+              
+              
+              <img
+              src={propertyImages[0]}
+                alt="....." 
+                  fetchPriority="high"
+                 className="absolute inset-0 w-full h-full object-cover"
+                 />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-8">
                 <div className="bg-[#D4755B] inline-block px-3 py-1 rounded text-white font-manrope font-bold text-xs mb-4">

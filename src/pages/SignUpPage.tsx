@@ -13,7 +13,7 @@ const SignUpPage: React.FC = () => {
     try {
       setError(null);
       const fullName = `${formData.firstName} ${formData.lastName}`.trim();
-      await register(fullName, formData.email, '', formData.password);
+      await register(fullName, formData.email, formData.password);
       navigate('/');
     } catch (err: any) {
       setError(err.response?.data?.message || err.message || 'Registration failed. Please try again.');

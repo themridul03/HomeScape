@@ -1,10 +1,7 @@
 import axios from 'axios';
 
 // API Base URL - uses env variable or falls back to localhost
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL
-  ? `${import.meta.env.VITE_API_BASE_URL}/api`
-  : 'http://localhost:4000/api';
-
+const API_BASE_URL = "/api";
 // Create axios instance
 const apiClient = axios.create({
   baseURL: API_BASE_URL,
@@ -46,7 +43,7 @@ apiClient.interceptors.response.use(
 // Backend register expects { name, email, password }
 // We transform fullName → name here so the UI can keep using fullName
 export const userAPI = {
-  register: (data: { fullName: string; email: string; phone: string; password: string }) =>
+  register: (data: { fullName: string; email: string;  password: string }) =>
     apiClient.post('/users/register', {
       name: data.fullName,
       email: data.email,

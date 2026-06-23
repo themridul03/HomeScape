@@ -13,7 +13,7 @@ interface AuthContextType {
   isAuthenticated: boolean;
   isLoading: boolean;
   login: (email: string, password: string, rememberMe?: boolean) => Promise<void>;
-  register: (fullName: string, email: string, phone: string, password: string) => Promise<void>;
+  register: (fullName: string, email: string, password: string) => Promise<void>;
   logout: () => void;
 }
 
@@ -41,7 +41,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   }, []);
 
   const login = useCallback(async (email: string, password: string, rememberMe: boolean = false) => {
-    const { data } = await userAPI.login({ email, password, rememberMe });
+    const { data } = await userAPI.login({ email, password });
     if (data.success && data.token) {
       localStorage.setItem('HomeScape_token', data.token);
       localStorage.setItem('HomeScape_user', JSON.stringify(data.user));
@@ -52,8 +52,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     }
   }, []);
 
-  const register = useCallback(async (fullName: string, email: string, phone: string, password: string) => {
-    const { data } = await userAPI.register({ fullName, email, phone, password });
+  const register = useCallback(async (fullName: string, email: string, password: string) => {
+    const { data } = await userAPI.register({ fullName, email, password });
     if (data.success && data.token) {
       localStorage.setItem('HomeScape_token', data.token);
       localStorage.setItem('HomeScape_user', JSON.stringify(data.user));
